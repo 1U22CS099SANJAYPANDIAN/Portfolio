@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sanjay Portfolio</title>
+  <link rel="stylesheet" href="Styles/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <nav>
+      <h1 class="logo">Port<span>folio.</span></h1>
+          <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+      <ul>
+        <li><a href="#home" class="bar">Home</a></li>
+        <li><a href="#about" class="bar">About</a></li>
+        <li><a href="#skills" class="bar">Skills</a></li>
+        <li><a href="#projects" class="bar">Projects</a></li>
+        <li><a href="#resume" class="bar">Resume</a></li>
+        <li><a href="#contact" class="bar">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+  <img src="Images/IMG_4325_Original1.jpg" alt="Sanjay Pandian" class="hero-img">
+
+  <div class="hero-content">
+    <h1>Hi, I'm <span>Sanjay Pandian</span></h1>
+    <h2>M.Sc Computer Science Student</h2>
+    <p>Passionate about web development, creative projects, and exploring technology in innovative ways.</p>
+
+    <div class="hero-icons">
+      <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>Hello! I’m <strong>Sanjay Pandian</strong>, a motivated and enthusiastic Computer Science student at 
+       <strong>RVS College of Arts and Science</strong>. I am passionate about technology, web development, 
+       and building efficient solutions that enhance user experiences.</p>
+    <p>I have hands-on experience in <strong>customer service</strong> at Flipkart and 
+       <strong>system assembly and configuration</strong> at VST ECS (India) Ltd., 
+       where I worked with hardware components and troubleshooting.</p>
+    <p>My strengths include <strong>project management, leadership, teamwork, critical thinking, and effective communication</strong>.  
+       I am fluent in <strong>English</strong> and <strong>Tamil</strong>.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skill">
+      <p>HTML <span>50%</span></p>
+      <div class="skill-bar"><div class="skill-level" style="width:50%;"></div></div>
+    </div>
+    <div class="skill">
+      <p>CSS <span>40%</span></p>
+      <div class="skill-bar"><div class="skill-level" style="width:40%;"></div></div>
+    </div>
+    <div class="skill">
+      <p>JavaScript <span>60%</span></p>
+      <div class="skill-bar"><div class="skill-level" style="width:60%;"></div></div>
+    </div>
+    <div class="skill">
+      <p>Computer Hardware & Troubleshooting <span>85%</span></p>
+      <div class="skill-bar"><div class="skill-level" style="width:85%;"></div></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-grid">
+      <!-- Portfolio Website (no View Output button) -->
+      <div class="project-card">
+        <div class="project-icon">🌐</div>
+        <h3>Portfolio Website</h3>
+        <p>Created this personal portfolio to showcase my skills, resume, and projects with responsive design.</p>
+      </div>
+
+      <!-- Eyeball Movement Project -->
+      <div class="project-card">
+        <div class="project-icon">👁️</div>
+        <h3>Eyeball Movement Project</h3>
+        <p>A fun JavaScript project where an eyeball follows the cursor around the screen. Demonstrates DOM manipulation and event handling.</p>
+        <button class="btn" onclick="openProject('eyeball')">View Output</button>
+      </div>
+
+      <!-- Pac-Man Animation -->
+      <div class="project-card">
+        <div class="project-icon">🟡</div>
+        <h3>Pac-Man Animation</h3>
+        <p>A simple Pac-Man that opens and closes its mouth while moving across the screen. Built with HTML, CSS, and JavaScript animations.</p>
+        <button class="btn" onclick="openProject('pacman')">View Output</button>
+      </div>
+
+      <!-- Bouncing Ball -->
+      <div class="project-card">
+        <div class="project-icon">⚽</div>
+        <h3>Bouncing Ball</h3>
+        <p>A JavaScript project simulating a ball bouncing inside a box. Uses CSS for styling and JavaScript for motion logic.</p>
+        <button class="btn" onclick="openProject('bouncing')">View Output</button>
+      </div>
+    </div>
+
+    <!-- Templates -->
+    <template id="eyeball">
+      <style>
+        body { margin:0; height:100vh; display:flex; justify-content:center; align-items:center; background:#111; }
+        .eye { width:100px; height:100px; background:white; border-radius:50%; position:relative; }
+        .pupil { width:40px; height:40px; background:black; border-radius:50%; position:absolute; top:30px; left:30px; }
+      </style>
+      <div class="eye"><div class="pupil"></div></div>
+      <script>
+        const eye = document.querySelector('.eye');
+        const pupil = document.querySelector('.pupil');
+        document.addEventListener('mousemove', e => {
+          const rect = eye.getBoundingClientRect();
+          const x = e.clientX - rect.left - 50;
+          const y = e.clientY - rect.top - 50;
+          const angle = Math.atan2(y,x);
+          pupil.style.transform = 'translate(' + (20*Math.cos(angle)) + 'px,' + (20*Math.sin(angle)) + 'px)';
+        });
+      </script>
+    </template>
+
+    <template id="pacman">
+      <style>
+        body { background:#111; display:flex; justify-content:center; align-items:center; height:100vh; }
+        .pacman { width:100px; height:100px; border-radius:50%; background:yellow; position:relative; clip-path: polygon(50% 50%, 100% 25%, 100% 75%); animation: openClose 0.5s infinite alternate; }
+        @keyframes openClose { 0% { clip-path: polygon(50% 50%, 100% 0%, 100% 100%); } 100% { clip-path: polygon(50% 50%, 100% 25%, 100% 75%); } }
+      </style>
+      <div class="pacman"></div>
+    </template>
+
+    <template id="bouncing">
+      <style>
+        body { margin:0; display:flex; justify-content:center; align-items:center; height:100vh; background:#111; }
+        .box { width:300px; height:300px; border:2px solid #ff7f50; position:relative; overflow:hidden; }
+        .ball { width:30px; height:30px; border-radius:50%; background:#ff7f50; position:absolute; top:0; left:0; }
+      </style>
+      <div class="box"><div class="ball"></div></div>
+      <script>
+        const ball = document.querySelector('.ball');
+        const box = document.querySelector('.box');
+        let x = 0, y = 0, dx = 2, dy = 2;
+        function move() {
+          x += dx; y += dy;
+          if(x + 30 > 300 || x < 0) dx = -dx;
+          if(y + 30 > 300 || y < 0) dy = -dy;
+          ball.style.left = x+'px'; ball.style.top = y+'px';
+          requestAnimationFrame(move);
+        }
+        move();
+      </script>
+    </template>
+  </section>
+
+  <!-- RESUME -->
+  <section class="resume" id="resume">
+    <h2>My Resume</h2>
+    <div class="resume-container">
+      <div class="resume-summary">
+        <h3>🎓 Education</h3>
+        <p>Pursuing M.Sc Computer Science (2025–2027) at RVS College of Arts and Science.</p>
+        <p>Completed B.Sc Computer Science (2022–2025).</p>
+
+        <h3>💼 Work Experience</h3>
+        <p>- Customer Service at Flipkart (communication and client support).</p>
+        <p>- System Assembly & Configuration at VST ECS (India) Ltd. (hardware troubleshooting).</p>
+
+        <h3>🛠 Skills</h3>
+        <p>HTML, CSS, JavaScript, Computer Hardware & Troubleshooting, Communication, Leadership, Teamwork.</p>
+
+        <h3>🌐 Languages</h3>
+        <p>English, Tamil</p>
+      </div>
+      <div class="resume-preview">
+        <iframe src="Resume.pdf" frameborder="0"></iframe>
+      </div>
+    </div>
+    <a href="Resume.pdf" target="_blank" class="btn">📄 Download Resume</a>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-container">
+      <form id="contact-form" action="#" method="post" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <input type="hidden" name="to_email" value="sanjaypandian57@gmail.com">
+        <button type="submit">Send Message</button>
+      </form>
+      <div class="contact-details">
+        <p><i class="fa-solid fa-user"></i> <strong>Sanjay Pandian S</strong></p>
+        <p><i class="fa-solid fa-phone"></i> +91 9629426975</p>
+        <p><i class="fa-solid fa-envelope"></i> 
+           <a href="mailto:sanjaypandian57@gmail.com">sanjaypandian57@gmail.com</a>
+        </p>
+        <p><i class="fa-solid fa-location-dot"></i> Sulur, Coimbatore</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Sanjay Pandian. All Rights Reserved</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("1TuYsm9vUVC_GBilT"); })();
+
+    document.getElementById('contact-form').addEventListener('submit', function(event){
+      event.preventDefault();
+      emailjs.sendForm('service_r12yl8','template_uk55tf8',this)
+      .then(()=>{ alert('Message sent successfully!'); this.reset(); },
+            (err)=>{ console.log(err); alert('Failed to send message.'); });
+    });
+
+    window.addEventListener('load',()=>{ window.scrollTo(0,0); if(window.location.hash) history.replaceState(null,null,' '); });
+
+    document.querySelectorAll('nav ul li a').forEach(link=>{
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        const target=document.querySelector(this.getAttribute('href'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+        history.pushState(null,null,' ');
+      });
+    });
+
+    function openProject(id){
+      const templateContent = document.getElementById(id).innerHTML;
+      const blob = new Blob([templateContent], {type: 'text/html'});
+      const url = URL.createObjectURL(blob);
+      window.open(url);
+    }
+    const menuToggle = document.querySelector('.menu-toggle');
+const navList = document.querySelector('nav ul');
+menuToggle.addEventListener('click', () => {
+  navList.classList.toggle('active');
+  menuToggle.classList.toggle('open');
+});
+  </script>
+
+</body>
+</html>
